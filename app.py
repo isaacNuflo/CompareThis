@@ -2,7 +2,6 @@ import requests
 import argparse
 import json
 import re
-import ast
 
 API_KEY = 'MY_API_KEY'
 with open('libros.json') as json_file:
