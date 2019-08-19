@@ -1,68 +1,270 @@
 {
-    "Genesis": "Genesis",
-    "Exodo": "Exodus",
-    "Levitico": "Leviticus",
-    "Numeros": "Numbers",
-    "Deuteronomio": "Deuteronomy",
-    "Josue": "Joshua",
-    "Jueces": "Judges",
-    "Rut": "Ruth",
-    "1 Samuel": "1Samuel",
-    "2 Samuel": "2Samuel",
-    "1 Reyes": "1Kings",
-    "2 Reyes": "2Kings",
-    "1 Cronicas": "1Chronicles",
-    "2 Cronicas": "2Chronicles",
-    "Esdras": "Ezra",
-    "Nehemias": "Nehemiah",
-    "Ester": "Esther",
-    "Job": "Job",
-    "Salmos": "Psalms",
-    "Proverbios": "Proverbs",
-    "Eclesiastes": "Ecclesiastes",
-    "Cantares": "Canticles",
-    "Isaias": "Isaiah",
-    "Jeremias": "Jeremiah",
-    "Lamentaciones": "Lamentations",
-    "Ezequiel": "Ezekiel",
-    "Daniel": "Daniel",
-    "Oseas": "Hosea",
-    "Joel": "Joel",
-    "Amos": "Amos",
-    "Abdias": "Obadiah",
-    "Jonas": "Jonah",
-    "Miqueas": "Micah",
-    "Nahum": "Nahum",
-    "Habacuc": "Habakkuk",
-    "Sofonias": "Zephaniah",
-    "Hageo": "Haggai",
-    "Zacarias": "Zechariah",
-    "Malaquias": "Malachi",
-    "Mateo": "Matthew",
-    "Marcos": "Mark",
-    "Lucas": "Luke",
-    "Juan": "John",
-    "Hechos": "Acts",
-    "Romanos": "Romans",
-    "1 Corintios": "1Corinthians",
-    "2 Corintios": "2Corinthians",
-    "Galatas": "Galatians",
-    "Efesios": "Ephesians",
-    "Filipenses": "Philippians",
-    "Colosenses": "Colossians",
-    "1 Tesalonicenses": "1Thessalonians",
-    "2 Tesalonicenses": "2Thessalonians",
-    "1 Timoteo": "1Timothy",
-    "2 Timoteo": "2Timothy",
-    "Tito": "Titus",
-    "Filemon": "Philemon",
-    "Hebreos": "Hebrews",
-    "Santiago": "James",
-    "1 Pedro": "1Peter",
-    "2 Pedro": "2Peter",
-    "1 Juan": "1John",
-    "2 Juan": "2John",
-    "3 Juan": "3John",
-    "Judas": "Jude",
-    "Apocalipsis": "Revelation"
+    "AT": {
+        "Genesis": {
+            "nombre": "Genesis",
+            "abreviacion": "Gn"
+        },
+        "Exodo": {
+            "nombre": "Exodus",
+            "abreviacion": "Ex"
+        },
+        "Levitico": {
+            "nombre": "Leviticus",
+            "abreviacion": "Lv"
+        },
+        "Numeros": {
+            "nombre": "Numbers",
+            "abreviacion": "Lv"
+        },
+        "Deuteronomio": {
+            "nombre": "Deuteronomy",
+            "abreviacion": "Dt"
+        },
+        "Josue": {
+            "nombre": "Joshua",
+            "abreviacion": "Jos"
+        },
+        "Jueces": {
+            "nombre": "Judges",
+            "abreviacion": "Jue"
+        },
+        "Rut": {
+            "nombre": "Ruth",
+            "abreviacion": "Rt"
+        },
+        "1 Samuel": {
+            "nombre": "1Samuel",
+            "abreviacion": "1S"
+        },
+        "2 Samuel": {
+            "nombre": "2Samuel",
+            "abreviacion": "2S"
+        },
+        "1 Reyes": {
+            "nombre": "1Kings",
+            "abreviacion": "1R"
+        },
+        "2 Reyes": {
+            "nombre": "2Kings",
+            "abreviacion": "2R"
+        },
+        "1 Cronicas": {
+            "nombre": "1Chronicles",
+            "abreviacion": "1Cr"
+        },
+        "2 Cronicas": {
+            "nombre": "2Chronicles",
+            "abreviacion": "2Cr"
+        },
+        "Esdras": {
+            "nombre": "Ezra",
+            "abreviacion": "Esd"
+        },
+        "Nehemias": {
+            "nombre": "Nehemiah",
+            "abreviacion": "Neh"
+        },
+        "Ester": {
+            "nombre": "Esther",
+            "abreviacion": "Est"
+        },
+        "Job": {
+            "nombre": "Job",
+            "abreviacion": "Job"
+        },
+        "Salmos": {
+            "nombre": "Psalms",
+            "abreviacion": "Sal"
+        },
+        "Proverbios": {
+            "nombre": "Proverbs",
+            "abreviacion": "Pr"
+        },
+        "Eclesiastes": {
+            "nombre": "Ecclesiastes",
+            "abreviacion": "Ec"
+        },
+        "Cantares": {
+            "nombre": "Canticles",
+            "abreviacion": "Cnt"
+        },
+        "Isaias": {
+            "nombre": "Isaiah",
+            "abreviacion": "Is"
+        },
+        "Jeremias": {
+            "nombre": "Jeremiah",
+            "abreviacion": "Jer"
+        },
+        "Lamentaciones": {
+            "nombre": "Lamentations",
+            "abreviacion": "Lm"
+        },
+        "Ezequiel": {
+            "nombre": "Ezekiel",
+            "abreviacion": "Ez"
+        },
+        "Daniel": {
+            "nombre": "Daniel",
+            "abreviacion": "Dn"
+        },
+        "Oseas": {
+            "nombre": "Hosea",
+            "abreviacion": "Os"
+        },
+        "Joel": {
+            "nombre": "Joel",
+            "abreviacion": "Jl"
+        },
+        "Amos": {
+            "nombre": "Amos",
+            "abreviacion": "Am"
+        },
+        "Abdias": {
+            "nombre": "Obadiah",
+            "abreviacion": "Abd"
+        },
+        "Jonas": {
+            "nombre": "Jonah",
+            "abreviacion": "Jon"
+        },
+        "Miqueas": {
+            "nombre": "Micah",
+            "abreviacion": "Mi"
+        },
+        "Nahum": {
+            "nombre": "Nahum",
+            "abreviacion": "Nah"
+        },
+        "Habacuc": {
+            "nombre": "Habakkuk",
+            "abreviacion": "Hab"
+        },
+        "Sofonias": {
+            "nombre": "Zephaniah",
+            "abreviacion": "Sof"
+        },
+        "Hageo": {
+            "nombre": "Haggai",
+            "abreviacion": "Ha"
+        },
+        "Zacarias": {
+            "nombre": "Zechariah",
+            "abreviacion": "Zac"
+        },
+        "Malaquias": {
+            "nombre": "Malachi",
+            "abreviacion": "Mal"
+        }
+    },
+    "NT": {
+        "Mateo": {
+            "nombre": "Matthew",
+            "abreviacion": "Mt"
+        },
+        "Marcos": {
+            "nombre": "Mark",
+            "abreviacion": "Mr"
+        },
+        "Lucas": {
+            "nombre": "Luke",
+            "abreviacion": "Lc"
+        },
+        "Juan": {
+            "nombre": "John",
+            "abreviacion": "Jn"
+        },
+        "Hechos": {
+            "nombre": "Acts",
+            "abreviacion": "Hch"
+        },
+        "Romanos": {
+            "nombre": "Romans",
+            "abreviacion": "Ro"
+        },
+        "1 Corintios": {
+            "nombre": "1Corinthians",
+            "abreviacion": "1Co"
+        },
+        "2 Corintios": {
+            "nombre": "2Corinthians",
+            "abreviacion": "2Co"
+        },
+        "Galatas": {
+            "nombre": "Galatians",
+            "abreviacion": "Ga"
+        },
+        "Efesios": {
+            "nombre": "Ephesians",
+            "abreviacion": "Ef"
+        },
+        "Filipenses": {
+            "nombre": "Philippians",
+            "abreviacion": "Fil"
+        },
+        "Colosenses": {
+            "nombre": "Colossians",
+            "abreviacion": "Col"
+        },
+        "1 Tesalonicenses": {
+            "nombre": "1Thessalonians",
+            "abreviacion": "1Ts"
+        },
+        "2 Tesalonicenses": {
+            "nombre": "2Thessalonians",
+            "abreviacion": "2Ts"
+        },
+        "1 Timoteo": {
+            "nombre": "1Timothy",
+            "abreviacion": "1Ti"
+        },
+        "2 Timoteo": {
+            "nombre": "2Timothy",
+            "abreviacion": "1Ti"
+        },
+        "Tito": {
+            "nombre": "Titus",
+            "abreviacion": "Tit"
+        },
+        "Filemon": {
+            "nombre": "Philemon",
+            "abreviacion": "Flm"
+        },
+        "Hebreos": {
+            "nombre": "Hebrews",
+            "abreviacion": "He"
+        },
+        "Santiago": {
+            "nombre": "James",
+            "abreviacion": "Stg"
+        },
+        "1 Pedro": {
+            "nombre": "1Peter",
+            "abreviacion": "1P"
+        },
+        "2 Pedro": {
+            "nombre": "2Peter",
+            "abreviacion": "2P"
+        },
+        "1 Juan": {
+            "nombre": "1John",
+            "abreviacion": "1Jn"
+        },
+        "2 Juan": {
+            "nombre": "2John",
+            "abreviacion": "2Jn"
+        },
+        "3 Juan": {
+            "nombre": "3John",
+            "abreviacion": "3Jn"
+        },
+        "Judas": {
+            "nombre": "Jude",
+            "abreviacion": "Jud"
+        },
+        "Apocalipsis": {
+            "nombre": "Revelation",
+            "abreviacion": "Ap"
+        }
+    }
 }
