@@ -1,23 +1,42 @@
 import requests
-from bs4 import BeautifulSoup
-import collections
+from requests_utils import do_request, get_beautifulsoup, do_findall, do_select
 
-url = 'https://logosklogos.com/interlinear/AT/Gn'
-response = requests.get(url)
-soup = BeautifulSoup(response.text, 'html.parser')
+LOGOS_URL = 'https://logosklogos.com/'
+INTERLINEAL_URL = 'interlinear/{}/{}'
+STRONG_URL = 'strong_hebrew/{}'
 
-palabras = soup.findAll('span', class_="text-danger translation-hebrew")
-tipos_palabra = soup.findAll(
-    'span', class_="gw parsing cursor-pointer text-warning")
-palabras_hebreo = soup.findAll(
-    'span', class_="gw cursor-pointer hebrew-ezra-bold interl text-success")
 
-codigos_diccionario = soup.select('td a')
+def build_interlineal_request(testamento, libro_Abrv):
+    return LOGOS_URL + INTERLINEAL_URL.format(testamento, libro_Abrv)
 
-for palabra, tipo_palabra, palabra_hebreo, codigo_diccionario in zip(palabras, tipos_palabra, palabras_hebreo, codigos_diccionario):
+
+def build_strong_request(codigo_diccionario):
+    return LOGOS_URL + STRONG_URL.format(codigo_diccionario)
+
+
+def do_scraper(testamento, libro_Abrv):
+    request = build_interlineal_request(testamento, libro_Abrv)
+    response = do_request(request)
+    soup = get_beautifulsoup(response)
+    palabras = do_findall(soup, 'span', 'text-danger translation-hebrew')
+    tipos_palabra = do_findall(
+        soup, 'span', 'gw parsing cursor-pointer text-warning')
+    palabras_hebreo = do_findall(
+        soup, 'span', 'gw cursor-pointer hebrew-ezra-bold interl text-success"')
+    codigos_diccionario = do_select(soup, 'td a')
+    return get_estructura(palabras, tipos_palabra, palabras_hebreo, codigos_diccionario)
+
+
+def get_estructura(palabras, tipos_palabra, palabras_hebreo, codigos_diccionario):
     dic = {}
-    dic['palabra'] = palabra.string
-    dic['tipo_palabra'] = tipo_palabra['title']
-    dic['palabra_hebreo'] = palabra_hebreo['title']
-    dic['codigo_diccionario'] = codigo_diccionario['href']
+    for palabra, tipo_palabra, palabra_hebreo, codigo_diccionario in zip(palabras, tipos_palabra, palabras_hebreo, codigos_diccionario):
+        estructura = {}
+        estructura['tipo'] = tipo_palabra['title']
+        estructura['hebreo'] = palabra_hebreo['title']
+        estructura['codigo_diccionario'] = codigo_diccionario['href']
+        estructura['diccionario_url'] = build_strong_request(
+            codigo_diccionario['href'])
+        print(estructura)
+        dic[palabra.string] = estructura
     print(dic)
+    return dic
