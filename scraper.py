@@ -1,28 +1,28 @@
 import requests
-from requests_utils import do_request, get_beautifulsoup, do_findall, do_select
+from requests_utils import do_request, get_beautifulsoup, do_findall, do_select, CLASS
 
 LOGOS_URL = 'https://logosklogos.com/'
-INTERLINEAL_URL = 'interlinear/{}/{}'
-STRONG_URL = 'strong_hebrew/{}'
+INTERLINEAL_URL = 'interlinear/{}/{}/{}/{}'
 
 
-def build_interlineal_request(testamento, libro_Abrv):
-    return LOGOS_URL + INTERLINEAL_URL.format(testamento, libro_Abrv)
+def build_interlineal_request(testamento, libro_Abrv, num_libro, num_versiculo):
+    return LOGOS_URL + INTERLINEAL_URL.format(testamento, libro_Abrv, num_libro, num_versiculo)
 
 
-def build_strong_request(codigo_diccionario):
-    return LOGOS_URL + STRONG_URL.format(codigo_diccionario)
+def build_strong_request(diccionario_url):
+    return LOGOS_URL + diccionario_url
 
 
-def do_scraper(testamento, libro_Abrv):
-    request = build_interlineal_request(testamento, libro_Abrv)
+def do_scraper(testamento, libro_Abrv, num_libro, num_versiculo):
+    request = build_interlineal_request(
+        testamento, libro_Abrv, num_libro, num_versiculo)
     response = do_request(request)
     soup = get_beautifulsoup(response)
-    palabras = do_findall(soup, 'span', 'text-danger translation-hebrew')
+    palabras = do_findall(soup, 'span', CLASS[testamento][0])
     tipos_palabra = do_findall(
-        soup, 'span', 'gw parsing cursor-pointer text-warning')
+        soup, 'span', CLASS[testamento][1])
     palabras_hebreo = do_findall(
-        soup, 'span', 'gw cursor-pointer hebrew-ezra-bold interl text-success"')
+        soup, 'span', CLASS[testamento][2])
     codigos_diccionario = do_select(soup, 'td a')
     return get_estructura(palabras, tipos_palabra, palabras_hebreo, codigos_diccionario)
 
@@ -33,10 +33,8 @@ def get_estructura(palabras, tipos_palabra, palabras_hebreo, codigos_diccionario
         estructura = {}
         estructura['tipo'] = tipo_palabra['title']
         estructura['hebreo'] = palabra_hebreo['title']
-        estructura['codigo_diccionario'] = codigo_diccionario['href']
+        estructura['codigo_diccionario'] = codigo_diccionario.string
         estructura['diccionario_url'] = build_strong_request(
             codigo_diccionario['href'])
-        print(estructura)
         dic[palabra.string] = estructura
-    print(dic)
     return dic

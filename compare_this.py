@@ -40,8 +40,10 @@ def build_api_request(libro, cita):
         testamento_abrv = 'NT'
         testamento = libros.get(testamento_abrv, '')
         libro_ingles = testamento.get(libro, '')
-    print(do_scraper(testamento_abrv,libro_ingles.get('abreviacion','')))
+    libro_abrv = libro_ingles.get('abreviacion','')
     cita = cita.replace(":", ".")
+    numeros = cita.split('.')
+    print(do_scraper(testamento_abrv, libro_abrv, numeros[0], numeros[1]))
     return API_URL.format(libro_ingles.get("nombre", "") + cita, API_KEY)
 
 
