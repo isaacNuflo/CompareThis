@@ -1,8 +1,8 @@
 import requests
 from requests_utils import do_request, get_beautifulsoup, do_findall, do_select, CLASS
 
-LOGOS_URL = 'https://logosklogos.com/'
-INTERLINEAL_URL = 'interlinear/{}/{}/{}/{}'
+LOGOS_URL = 'https://logosklogos.com'
+INTERLINEAL_URL = '/interlinear/{}/{}/{}/{}'
 
 
 def build_interlineal_request(testamento, libro_Abrv, num_libro, num_versiculo):
